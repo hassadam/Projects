@@ -1,0 +1,490 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+char Menu(char option);
+double B(double num1,double num2,char sign,double results,int n1,int n2,double a,double b,double c,double d,double e,int varcount,char choice);
+void M(int position,int count, double arr[100],char cnt,int cont);
+double R(double arr[100]);
+void E(int count);
+char Var(char var);
+double NumV(char var,double numv);
+double U(double num1,double results,char sign,int varcount,char choice);
+double A(double num1,double num2,char sign,double results,int n1,int n2,double a,double b,double c,double d,double e,int varcount,char choice,char option,int count);
+
+
+double num1,num2,results,numv;
+char sign,option,var,cnt;
+int count=1;
+int cont=1;
+int n1,n2,completed,varcount,choice;
+int position=0;
+double arr[100]={0};
+double a,b,c,d,e;
+
+int main(){
+
+for(int i=count;cont=1;count++){
+choice = 0;
+option = Menu(option);
+
+if(option=='E'){
+count--;
+E(count);
+break;
+}
+
+if(option=='A'){
+count--;
+printf("Please chose either B for Binary, U for unary, or E for exit.\n");
+scanf(" %c",&option);
+while(option!='B'&&option!='U'&&option!='E'){
+printf("Please enter a valid input.\n");
+scanf(" %c",&option);
+}
+if(option =='B'||option=='U'){
+count++;
+}
+
+arr[count]= A(num1,num2,sign,results,n1,n2,a,b,c,d,e,varcount,choice,option,count);
+if(count>0){
+printf("Here's your answer : %lf\n",arr[count]);
+printf("Your answer has been stored in position %d of the memory array.\n",count);
+}
+option = 'A';
+}
+
+if(option=='B'){
+printf("You chose option %c.\n",option);
+arr[count]=B(num1,num2,sign,results,n1,n2,a,b,c,d,e,varcount,choice);
+
+printf("Here's your answer : %lf\n",arr[count]);
+printf("Your answer has been stored in position %d of the memory array.\n",count);
+}
+
+if(option=='U'){
+arr[count] = U(num1,results,sign,varcount,choice);
+printf("Here's your answer : %lf\n",arr[count]);
+printf("Your answer has been stored in position %d of the memory array.\n",count);
+}
+
+if(option == 'M'){
+int cont=1;
+count--;
+printf("You chose option %c.\n",option);
+M(position,count,arr,cnt,cont);
+}
+
+if(option=='V') {
+varcount=1;    
+var = Var(var);
+if(var == 'a'){
+arr[count]=NumV(var,numv);
+a = arr[count];
+printf("You stored %lf inside of the variable %c.\n\n",a,var);
+}  
+
+if(var == 'b'){
+arr[count]=NumV(var,numv);
+b = arr[count];
+printf("You stored %lf inside of the variable %c.\n\n",b,var);
+}
+
+if(var == 'c'){
+arr[count]=NumV(var,numv);
+c = arr[count];
+printf("You stored %lf inside of the variable %c.\n\n",c,var);
+} 
+
+if(var == 'd'){
+arr[count]=NumV(var,numv);
+d = arr[count];
+printf("You stored %lf inside of the variable %c.\n\n",d,var);
+}
+
+if(var == 'e'){
+arr[count]=NumV(var,numv);
+e = arr[count];
+printf("You stored %lf inside of the variable %c.\n\n",e,var);
+  } 
+}
+
+if(option=='R')
+{
+varcount=0;
+count=0;
+printf("You chose option %c.\n",option);
+printf("Your memory has been reset.\n\n");
+for (int i=0;i>100;i++){
+arr[i]=R(arr);
+        }
+      }
+    }
+  }
+
+
+double R(double arr[100]){
+for(int x=0;x>100;x++){
+arr[x]=0*0;}
+return arr[100];
+}
+
+void M(int position,int count, double arr[100],char cnt,int cont){
+while(1){
+    
+if(position==0){
+printf("The total amount of elements in the memory is %d.\n",count);}
+
+printf("Would you like to exit?\nEnter E to exit.\nEnter any other character to continue.\n");
+scanf("%s",&cnt);
+
+if(cnt == 'E'){
+break;
+}
+
+printf("Please enter the specific position of the memory array you'd like to see.\nIf you wish to display the entire memory array please enter 0.\n");
+scanf("%d",&position);
+
+if(position > 0){
+printf("The element you chose was %d and the value was %lf.\n\n",position,arr[position]);
+}
+
+if(position == 0){
+for(int x = count;x>0;x--){
+printf("%lf,  ",arr[x]);
+        }
+      }
+    }
+  }
+
+double B(double num1,double num2,char sign,double results,int n1,int n2,double a,double b,double c,double d,double e,int varcount,char choice){
+
+if(varcount==1){
+printf("Would you like to use a variable? If yes please enter Y. If not please enter E.\n");
+scanf(" %c",&choice);
+    if(choice=='Y'){
+        
+    printf("Which variable would you like to chose for the first number? a,b,c,d, or e?\nEnter N for a new number.\n\n");
+    scanf(" %c",&choice);
+        while(choice !='a' && choice!='b' && choice!='c' && choice!='d' && choice!='e' && choice!='N'){
+        printf("Please enter a valid input.\n");
+        scanf(" %c",&choice);
+        }
+    
+                if(choice == 'a'){
+                num1=a;
+                printf("The first number is : %lf\n",num1);
+                }
+                
+                if(choice == 'b'){
+                num1=b;
+                printf("The first number is : %lf\n",num1);
+                }
+                
+                if(choice == 'c'){
+                num1=c;
+                printf("The first number is : %lf\n",num1);
+                }
+                
+                if(choice == 'd'){
+                num1=d;
+                printf("The first number is : %lf\n",num1);
+                }
+                
+                if(choice == 'e'){
+                num1=e;
+                printf("The first number is : %lf\n",num1);
+                }
+                
+                if(choice == 'N'){
+                printf("Please enter a number.\n");
+                scanf("%lf",&num1);
+                printf("The first number is : %lf\n",num1);
+                }
+            
+    printf("Which variable would you like to chose for the second number? a,b,c,d, or e?\nEnter N for a number not listed.\n\n");
+    scanf(" %c",&choice);
+        while(choice !='a' && choice!='b' && choice!='c' && choice!='d' && choice!='e' && choice!='N'){
+        printf("Please enter a valid input.\n");
+        scanf(" %c",&choice);
+        } 
+        
+                if(choice == 'a'){
+                num2=a;
+                printf("The second number is : %lf\n",num2);
+                }
+                
+                if(choice == 'b'){
+                num2=b;
+                printf("The second number is : %lf\n",num2);
+                }
+                
+                if(choice == 'c'){
+                num2=c;
+                printf("The second number is : %lf\n",num2);
+                }
+                
+                if(choice == 'd'){
+                num2=d;
+                printf("The second number is : %lf\n",num2);
+                }
+                
+                if(choice == 'e'){
+                num2=e;
+                printf("The second number is : %lf\n",num2);
+                }
+                
+                if(choice == 'N'){
+                printf("Please enter a number.\n");
+                scanf(" %lf",&num2);
+                printf("The second number is : %lf\n",num2);
+                }
+    }
+}
+
+if(varcount==0 || choice =='E'){
+printf("Please enter your first number:\n");
+scanf(" %lf",&num1);
+printf("Please enter your second number:\n");
+scanf(" %lf",&num2);
+}
+
+printf("Please pick one of the following operators: '+' addition, '-' subtraction, '/' division, '%' remainder, 'P' power, 'X' for the maximum, and 'I' for the minimum.\n");
+scanf("%s",&sign);
+
+while(sign != '+' && sign != '-' && sign != '/' && sign != '*' && sign != '%' && sign != 'P' && sign != 'X' && sign != 'I'){
+printf("Please input a valid operator.\n");
+scanf("%s",&sign);
+}
+
+
+while(sign == '/' && num2==0){
+printf("Please enter a number that isn't 0.\n");
+scanf("%lf",&num2); 
+}
+
+while(sign == '%' && num2==0){
+printf("Please enter a number that isn't 0.\n");
+scanf("%lf",&num2); 
+}    
+
+if(sign=='+'){
+results = num1+num2;
+return results;
+}
+
+if(sign=='-'){
+results = num1-num2;
+return results;
+}
+
+if(sign=='/'){
+results = num1/num2;
+return results;
+}
+
+if(sign=='*'){
+results = num1*num2;
+return results;
+}
+
+if(sign == 'P')	{
+results=pow(num1,num2);
+return results;
+}
+	
+if(sign == '%') {
+    
+n1 = num1 * 1;
+n2 = num2 * 1;
+
+results = n1%n2;
+return results;
+}
+
+if(sign == 'X'){
+if(num1>num2){
+results = num1;
+return results;
+}
+    
+if(num2>num1){
+results = num2;
+return results;
+} 
+    
+if(num1==num2){
+results = num1;
+return results;
+  }
+}
+    
+if(sign == 'I'){
+    
+if(num1<num2){
+results = num1;
+return results;
+}
+    
+if(num2<num1){
+results = num2;
+return results;
+}
+    
+if(num1 == num2){
+results = num1;
+return results;
+    }
+  }
+}
+
+char Menu(char option){
+printf("Welcome to my Command Line Calculator!, Please choose one of the following options:\n");
+printf("B for binary, U for unary, A for advanced, V for define variables, M for memory, R for reset memory, and E for exit\n");
+scanf("%s", &option);
+
+if(option !='B' && option !='V' && option !='U' && option !='A' && option !='M' && option !='R' && option !='E'){
+printf("Please enter a valid option.\n");
+scanf("%s",&option);
+}
+
+return option;
+}
+
+void E(int count){
+if(count>0){
+printf("Your number of answers : %d\n",count);
+}
+
+printf("Good bye!\n");
+} 
+
+char Var(char var){
+printf("Please enter a single character between a and e for your variable.\n");
+scanf("%s",&var);
+	
+while(var != 'a' && var != 'b' && var != 'c' && var != 'd' && var != 'e'){
+printf("Please enter a valid character between a and e.\n");
+scanf("%s", &var);
+}
+return var;
+}
+
+double NumV(char var,double numv){	    
+printf("Please enter a number\n");
+scanf("%lf",&numv);
+return numv;
+}
+
+double U(double num1,double results,char sign,int varcount,char choice){
+    
+if(varcount==1){
+printf("Would you like to use a variable? If yes please enter Y. If not please enter E.\n");
+scanf(" %c",&choice);
+    if(choice=='Y'){
+        
+    printf("Which variable would you like to chose for the first number? a,b,c,d, or e?\nEnter N for a new number.\n\n");
+    scanf(" %c",&choice);
+        while(choice !='a' && choice!='b' && choice!='c' && choice!='d' && choice!='e' && choice!='N'){
+        printf("Please enter a valid input.\n");
+        scanf(" %c",&choice);
+        }
+    
+                if(choice == 'a'){
+                num1=a;
+                printf("The number is : %lf\n",num1);
+                }
+                
+                if(choice == 'b'){
+                num1=b;
+                printf("The number is : %lf\n",num1);
+                }
+                
+                if(choice == 'c'){
+                num1=c;
+                printf("The number is : %lf\n",num1);
+                }
+                
+                if(choice == 'd'){
+                num1=d;
+                printf("The number is : %lf\n",num1);
+                }
+                
+                if(choice == 'e'){
+                num1=e;
+                printf("The number is : %lf\n",num1);
+                }
+                
+                if(choice == 'N'){
+                printf("Please enter a number.\n");
+                scanf("%lf",&num1);
+                printf("The number is : %lf\n",num1);
+                }
+              }
+           }
+
+if(varcount==0 || choice =='E'){
+printf("Please enter your first number:\n");
+scanf(" %lf",&num1);
+}
+	
+printf("Please choose L for log, E for exponentiation, S for squareroot, C for smallest integer value greater than or equal to x, or F for the largest integer value less than or equal to x.\n");
+scanf(" %s",&sign);
+	
+	if(sign == 'L'){
+	    if(num1 <= 0){
+	        printf("Please input a positive integer number greater than or equal to 1\n");
+	        scanf(" %lf",&num1);
+          }
+	        
+	   else{
+	       results = log10(num1);
+	       return results;
+         }
+       }   
+	  
+	if(sign == 'E'){
+	    results  = pow(2.718281,num1);
+	    return results;
+      }
+	
+	if(sign =='S'){
+	   if(num1 < 0){
+	        printf("Please input a positive number greater than or equal to 0\n");
+	        scanf("%lf",&num1);
+          }
+	        
+	   else{
+	       results = sqrt(num1);
+	       return results;
+         }
+       }
+    	
+    if(sign == 'C'){
+    results = ceil(num1);
+    return results;
+    }
+    
+    if(sign == 'F'){
+    results = floor(num1);
+    return results;
+    }
+  }
+    
+double A(double num1,double num2,char sign,double results,int n1,int n2,double a,double b,double c,double d,double e,int varcount,char choice,char option,int count){
+
+if(option=='B'){
+count++;
+results = B(num1,num2,sign,results,n1,n2,a,b,c,d,e,varcount,choice);
+return results;
+}
+
+if(option=='U'){
+count++;
+results = U(num1,results,sign,varcount,choice);
+return results;
+}
+
+if(option=='E'){
+E(count);
+}
+}
